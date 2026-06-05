@@ -2,6 +2,8 @@
 
 CodexBro is an experimental local-execution control plane for Codex-style agents. The web console lets a user log in, bind a local worker, upload workspace-scoped files, then work from a task conversation: task history on the left, live worker feedback in the chat, and a composer for new local tasks at the bottom. The console defaults to Chinese and includes a Chinese/English language switch.
 
+[![CI](https://github.com/cxhihilwb123-hash/codexbro/actions/workflows/ci.yml/badge.svg)](https://github.com/cxhihilwb123-hash/codexbro/actions/workflows/ci.yml)
+
 > CodexBro is an unofficial open-source project. It is not affiliated with, endorsed by, or sponsored by OpenAI. Codex, ChatGPT, and OpenAI are trademarks of their respective owners.
 
 ## Why This Exists
