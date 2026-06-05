@@ -1,0 +1,16 @@
+node_modules
+dist
+.codexbro
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+coverage
+playwright-report
+test-results
+.turbo
+.vite
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

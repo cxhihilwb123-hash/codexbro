@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a reproducible CodexBro problem.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include commands, environment variables, and task mode.
+      placeholder: |
+        1. Run npm run dev
+        2. Pair a worker with ...
+        3. Create a task with ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      placeholder: "macOS 15, Node 22, Chrome/Codex Desktop versions if relevant"
+

@@ -1,0 +1,27 @@
+{
+  "name": "codexbro",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:server": "npm --workspace @codexbro/server run dev",
+    "dev:web": "npm --workspace @codexbro/web run dev",
+    "worker": "npm --workspace @codexbro/worker run dev --",
+    "build": "npm --workspace @codexbro/shared run build && npm --workspace @codexbro/server run build && npm --workspace @codexbro/worker run build && npm --workspace @codexbro/web run build",
+    "check": "npm --workspace @codexbro/shared run build && npm --workspace @codexbro/server run check && npm --workspace @codexbro/worker run check && npm --workspace @codexbro/web run check",
+    "test:e2e": "node scripts/e2e.mjs",
+    "test:ui": "node scripts/ui-smoke.mjs",
+    "test:desktop-e2e": "node scripts/desktop-bridge-e2e.mjs",
+    "doctor:desktop": "node scripts/desktop-doctor.mjs",
+    "probe:native-browser": "npm --workspace @codexbro/worker run build && node scripts/probe-native-browser.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0",
+    "typescript": "^5.8.3"
+  }
+}

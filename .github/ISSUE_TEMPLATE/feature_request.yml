@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest an improvement to CodexBro.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What maintainer or local-agent workflow would this improve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the smallest useful version of the change.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Web console
+        - Server/API
+        - Worker
+        - Desktop bridge
+        - Documentation
+        - Tests/CI
+
