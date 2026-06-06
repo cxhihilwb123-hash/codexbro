@@ -2,9 +2,13 @@
 
 [English README](README.md)
 
+像 SaaS 一样管理本地 Codex：网页派发任务，本机执行，过程可审计。
+
 CodexBro 是一个实验性的本地 Agent 执行控制台，用来把网页端的任务管理、审批、日志、文件和审计能力连接到可信的本地 Codex worker。
 
 它不是 OpenAI 官方项目，也不隶属于 OpenAI。Codex、ChatGPT、OpenAI 是其各自所有者的商标。
+
+![CodexBro 控制台](assets/verification/ui-smoke-dashboard.png)
 
 ## 这个项目解决什么问题
 
@@ -55,6 +59,12 @@ CodexBro 目前是 early-stage OSS reference implementation。
 - SQLite 默认存储，也保留 JSON fallback。
 - 任务产物目录：任务生成的文件可以自动回传到 Web 端。
 - 自动化验证：`check`、`build`、E2E、UI smoke、可选 Desktop E2E。
+
+## 截图
+
+这些截图来自本地 smoke 数据，不包含真实客户信息、密钥或私有工作区内容。
+
+![CodexBro 移动端任务视图](assets/verification/ui-smoke-mobile.png)
 
 ## 快速启动
 
@@ -169,6 +179,13 @@ scripts/          E2E、UI smoke、Desktop bridge、doctor 工具
 docs/             架构、部署、本地设置、项目范围、维护说明
 ```
 
+## 更多文档
+
+- `docs/DEMO.md`：5 步本地演示流程。
+- `docs/FAQ.zh-CN.md`：中文常见问题。
+- `docs/THREAT_MODEL.md`：本地执行安全模型和信任边界。
+- `docs/COMPARISON.md`：和 CI runner、远程桌面、普通 Chat UI 的区别。
+
 ## 开源许可证
 
 CodexBro 使用 AGPL-3.0-or-later。
@@ -189,4 +206,3 @@ CodexBro 使用 AGPL-3.0-or-later。
 - 安全边界和审批流程审查
 
 贡献前请阅读 `CONTRIBUTING.md`。
-

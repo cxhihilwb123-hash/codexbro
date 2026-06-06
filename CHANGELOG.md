@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.2 - 2026-06-06
+
+Open-source packaging polish.
+
+- Added screenshot previews to English and Chinese READMEs.
+- Added Chinese positioning copy and a full `README.zh-CN.md` entry point.
+- Added FAQ, threat model, demo walkthrough, comparison, and expanded screenshot docs.
+
 ## v0.1.1 - 2026-06-05
 
 Open-source maintenance release.

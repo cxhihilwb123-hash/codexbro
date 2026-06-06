@@ -2,11 +2,15 @@
 
 [中文说明](README.zh-CN.md)
 
+Run Codex-style work from a web console while keeping execution on your own machine.
+
 CodexBro is an experimental local-execution control plane for Codex-style agents. The web console lets a user log in, bind a local worker, upload workspace-scoped files, then work from a task conversation: task history on the left, live worker feedback in the chat, and a composer for new local tasks at the bottom. The console defaults to Chinese and includes a Chinese/English language switch.
 
 [![CI](https://github.com/cxhihilwb123-hash/codexbro/actions/workflows/ci.yml/badge.svg)](https://github.com/cxhihilwb123-hash/codexbro/actions/workflows/ci.yml)
 
 > CodexBro is an unofficial open-source project. It is not affiliated with, endorsed by, or sponsored by OpenAI. Codex, ChatGPT, and OpenAI are trademarks of their respective owners.
+
+![CodexBro dashboard](assets/verification/ui-smoke-dashboard.png)
 
 ## Why This Exists
 
@@ -27,7 +31,9 @@ The project is early-stage OSS. The stable core is local task orchestration, wor
 
 ## Screenshots
 
-See `docs/SCREENSHOTS.md` and the non-sensitive images under `assets/verification/`.
+The included screenshots are generated from non-sensitive local smoke data. See `docs/SCREENSHOTS.md` for the screenshot index and privacy checklist.
+
+![CodexBro mobile task view](assets/verification/ui-smoke-mobile.png)
 
 The task conversation highlights live execution state with a stage strip, feedback counters, the latest worker message, and a progress timeline. Worker cards include a capability matrix for Shell, Codex, Browser, and Computer modes, and the task composer shows whether the selected local worker can accept the current mode before dispatch. Approval prompts explain the exact paused action and make Browser/Computer confirmations explicit before local Codex continues.
 
@@ -143,6 +149,14 @@ npm run test:ui
 ```
 
 More setup notes live in `docs/LOCAL_SETUP.md`, `docs/ARCHITECTURE.md`, and `docs/DEPLOYMENT.md`.
+
+## More Documentation
+
+- `README.zh-CN.md`: Chinese project overview.
+- `docs/DEMO.md`: five-step local demo walkthrough.
+- `docs/FAQ.zh-CN.md`: Chinese FAQ for users and contributors.
+- `docs/THREAT_MODEL.md`: local-execution security model and trust boundaries.
+- `docs/COMPARISON.md`: how CodexBro differs from CI runners, remote desktop, and plain chat UIs.
 
 ## Verification
 
