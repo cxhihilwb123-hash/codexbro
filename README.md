@@ -84,6 +84,59 @@ Useful worker options:
 - `CODEXBRO_APP_SERVER_REUSE=false`: disable app-server process reuse. By default the worker reuses an idle app-server for the same command/config/cwd.
 - `CODEXBRO_APP_SERVER_IDLE_MS`: how long an idle reusable app-server stays alive. Defaults to `300000`.
 
+### Common worker startup examples
+
+Single repository with one allowed directory:
+
+```bash
+npm run worker -- \
+  --server http://localhost:4317 \
+  --pairing-token <token> \
+  --token-file .codexbro/worker-token.json \
+  --allowed-dir /Users/alice/src/codexbro
+```
+
+Shell-only worker for a narrow local project:
+
+```bash
+npm run worker -- \
+  --server http://localhost:4317 \
+  --pairing-token <token> \
+  --token-file .codexbro/worker-token.json \
+  --allowed-dir /Users/alice/src/ops-notes \
+  --allowed-mode shell
+```
+
+Codex-only worker for one workspace tree:
+
+```bash
+npm run worker -- \
+  --server http://localhost:4317 \
+  --pairing-token <token> \
+  --token-file .codexbro/worker-token.json \
+  --allowed-dir /Users/alice/src/customer-a \
+  --allowed-mode codex
+```
+
+Desktop worker for Shell, Codex, Browser, and Computer tasks:
+
+```bash
+CODEXBRO_NATIVE_TASK_BACKEND=desktop \
+CODEXBRO_DESKTOP_ALLOW_FOREGROUND=true \
+CODEXBRO_DESKTOP_BRIDGE_SMOKE_READINESS=true \
+npm run worker -- \
+  --server http://localhost:4317 \
+  --pairing-token <token> \
+  --token-file .codexbro/worker-token.json \
+  --allowed-dir /Users/alice/src/codexbro \
+  --allowed-mode shell \
+  --allowed-mode codex \
+  --allowed-mode browser \
+  --allowed-mode computer
+```
+
+Desktop warning: Browser and Computer tasks are experimental, foreground Codex Desktop during dispatch, and should only be enabled on a machine where the user expects that visible handoff.
+
 Tasks can be canceled from the web console. Pending and approval-waiting tasks cancel immediately; running shell/Codex/browser/computer tasks are interrupted through the local connector. If a connector disconnects while a task is running, the server requeues stale running tasks after the configured heartbeat timeout, delays the next attempt with exponential backoff, and fails the task after the stale retry limit is reached.
 
 Workers report native readiness during registration and heartbeat. The Workers page shows the selected native backend plus checks for Codex CLI, `codex app-server`, the Codex Desktop bridge script, CuaDriver, and Chrome extension/native-host readiness. Desktop Bridge reports `available` when the script is installed on macOS; set `CODEXBRO_DESKTOP_BRIDGE_DIAGNOSE_READINESS=true` to additionally verify that CuaDriver can snapshot a Codex window and upgrade the check to `ready`. Neither path is an end-to-end task submission smoke test. These checks are diagnostic: a worker can still connect when a native channel is not ready, but browser/computer tasks will fail early or use the configured fallback when their required runtime is unavailable.
